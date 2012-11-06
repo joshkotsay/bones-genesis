@@ -92,12 +92,6 @@ add_action('wp_dashboard_setup', 'bones_custom_dashboard_widgets');
 /************* CUSTOM LOGIN PAGE *****************/
 
 // calling your own login css so you can style it
-// function bones_login_css() {
-// 	/* i couldn't get wp_enqueue_style to work :( */
-// 	echo '<link rel="stylesheet" href="'. get_stylesheet_directory_uri() . '/library/css/login.css">';
-// }
-
-//grabbed this code from http://codex.wordpress.org/Customizing_the_Login_Form#Styling_Your_Login
 function bones_login_css() { ?>
     <link rel="stylesheet" id="custom_wp_admin_css"  href="<?php echo get_stylesheet_directory_uri() . '/library/css/login.css'; ?>" type="text/css" media="all" />
 <?php }
