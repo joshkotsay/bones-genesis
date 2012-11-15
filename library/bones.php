@@ -4,7 +4,7 @@ Author: Eddie Machado
 URL: htp://themble.com/genesis/bones/
 
 Don't delete or edit this file unless you know
-what you're doing. If you mess something up in 
+what you're doing. If you mess something up in
 here, you'll break the theme.
 */
 
@@ -12,32 +12,32 @@ here, you'll break the theme.
 SCRIPTS & ENQEUEING
 *********************/
 
-// loading modernizr and jquery, and reply script 
+// loading modernizr and jquery, and reply script
 function bfg_scripts_and_styles() {
-  
+
     // modernizr (without media query polyfill)
     wp_register_script( 'bfg-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
- 
+
     // register mobile stylesheet
     wp_register_style( 'bfg-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
     // ie-only style sheet
     wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
-    
+
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
       wp_enqueue_script( 'comment-reply' );
     }
-    
+
     // adding scripts file in the footer
     wp_register_script( 'bfg-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-    
+
     /*
     now let's enqueue the scripts and styles into the wp_head function.
     for more information on how this works, check out this post:
     http://wpcandy.com/teaches/how-to-load-scripts-in-wordpress-themes
     */
-    wp_enqueue_script( 'bfg-modernizr' ); 
+    wp_enqueue_script( 'bfg-modernizr' );
     wp_enqueue_style( 'bfg-stylesheet' );
     wp_enqueue_style('bones-ie-only');
     /*
@@ -45,12 +45,12 @@ function bfg_scripts_and_styles() {
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
-    wp_enqueue_script( 'jquery' ); 
+    wp_enqueue_script( 'jquery' );
     // deregister the superfish scripts
     wp_deregister_script( 'superfish' );
     wp_deregister_script( 'superfish-args' );
-    wp_enqueue_script( 'bfg-js' ); 
-    
+    wp_enqueue_script( 'bfg-js' );
+
 } /* end scripts and styles function */
 
 // adding the conditional wrapper around ie stylesheet
@@ -69,11 +69,11 @@ meta tags. they're pretty rad.
 */
 function bfg_viewport_meta() {
 	echo '<!-- bones for genesis: adding google chrome frame support -->';
-	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">';
+	echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />';
 	echo '<!-- bones for genesis: mobile meta :) -->';
-	echo '<meta name="HandheldFriendly" content="True">';
-	echo '<meta name="MobileOptimized" content="320">';
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
+	echo '<meta name="HandheldFriendly" content="True" />';
+	echo '<meta name="MobileOptimized" content="320" />';
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
 }
 
 
@@ -105,7 +105,7 @@ function bfg_filter_ptags_on_images($content){
 }
 
 /*
-wordpress LOVES to inject css into the header. 
+wordpress LOVES to inject css into the header.
 we're going to stop that since it's gross and we
 want our code to be as clean as possible
 */
@@ -119,7 +119,7 @@ function bfg_remove_wp_widget_recent_comments_style() {
       remove_filter('wp_head', 'wp_widget_recent_comments_style' );
    }
 }
-	
+
 // remove CSS from recent comments widget
 function bfg_remove_recent_comments_style() {
   global $wp_widget_factory;
@@ -150,7 +150,7 @@ function bfg_breadcrumb_args( $args ) {
     $args['heirarchial_attachments'] = true;                   // Genesis 1.5 and later
     $args['heirarchial_categories'] = true;                    // Genesis 1.5 and later
     $args['display'] = true;
-    $args['labels']['prefix'] = '';                          
+    $args['labels']['prefix'] = '';
     $args['labels']['author'] = 'Archives for ';               // the author archives
     $args['labels']['category'] = 'Archives for ';             // the category archives (Genesis 1.6 and later)
     $args['labels']['tag'] = 'Archives for ';                  // the tag archives
